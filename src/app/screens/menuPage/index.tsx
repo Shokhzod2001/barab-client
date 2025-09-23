@@ -13,11 +13,12 @@ export default function MenuPage(props: MenuPageProps) {
   return (
     <div className="products-page">
       <Switch>
-        <Route
-          path="/:productId"
-          render={() => <ChosenProduct onAdd={onAdd} />}
-        />
-        <Route exact path="/" render={() => <RestaurantMenu onAdd={onAdd} />} />
+        <Route path="/menu/:productId">
+          <ChosenProduct onAdd={onAdd} />
+        </Route>
+        <Route exact path="/menu">
+          <RestaurantMenu onAdd={onAdd} />
+        </Route>
       </Switch>
     </div>
   );

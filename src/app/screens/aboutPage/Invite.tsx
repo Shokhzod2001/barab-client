@@ -1,4 +1,4 @@
-import { Box, Button, Container, Stack } from "@mui/material"
+import { Box, Button, Container, Stack } from "@mui/material";
 
 export default function Invite() {
   return (
@@ -31,5 +31,5 @@ export default function Invite() {
         </Stack>
       </Container>
     </div>
-  )
+  );
 }
