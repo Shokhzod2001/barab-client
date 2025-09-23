@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { CartItem } from "../../lib/types/search";
 
 const useBasket = () => {

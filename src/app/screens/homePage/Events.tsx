@@ -1,85 +1,118 @@
 import { Box, Stack } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
-import { plans } from "../../../lib/data/plans";
-
-SwiperCore.use([Autoplay, Navigation, Pagination]);
+import { Autoplay, Navigation, Pagination } from "swiper";
+import { fastFoodEvents } from "../../../lib/data/plans";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import { useState } from "react";
 
 export default function Events() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
-    <div className={"events-frame"}>
-      <Stack className={"events-main"}>
-        <Box className={"events-text"}>
-          <span className={"category-title"}>Events</span>
+    <Box className={"eventsFrame"}>
+      <Stack className={"eventsMain"}>
+        <Box className={"headerContainer"}>
+          <p className={"subtitle"}>News & Blogs</p>
+          <span className={"categoryTitle"}>
+            Our Latest News & <span>Blogs</span>
+          </span>
         </Box>
+        <img
+          src="/icons/greenDec.png"
+          alt=""
+          className={"float"}
+          style={{ marginTop: "30px" }}
+        />
 
         <Swiper
-          className={"events-info swiper-wrapper"}
+          className={"swiperWrapper"}
+          modules={[Navigation, Pagination, Autoplay]}
           slidesPerView={"auto"}
           centeredSlides={true}
           spaceBetween={30}
           navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: `.${"swiperButtonNext"}`,
+            prevEl: `.${"swiperButtonPrev"}`,
           }}
           pagination={{
-            el: ".swiper-pagination",
+            el: `.${"dotFramePagination"}`,
             clickable: true,
           }}
           autoplay={{
-            delay: 2000,
+            delay: 5000,
             disableOnInteraction: true,
           }}
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+          loop={true}
         >
-          {plans.map((value, number) => {
-            return (
-              <SwiperSlide key={number} className={"events-info-frame"}>
-                <div className={"events-img"}>
-                  <img src={value.img} className={"events-img"} />
-                </div>
-                <Box className={"events-desc"}>
-                  <Box className={"events-bott"}>
-                    <Box className={"bott-left"}>
-                      <div className={"event-title-speaker"}>
-                        <strong>{value.title}</strong>
-                        <div className={"event-organizator"}>
-                          <img src={"/icons/speaker.svg"} />
-                          <p className={"spec-text-author"}>{value.author}</p>
-                        </div>
-                      </div>
+          {fastFoodEvents.map((value, number) => (
+            <SwiperSlide key={number} className={"eventsInfoFrame"}>
+              <Box>
+                <Box className={"eventsImgContainer"}>
+                  <img
+                    src={value.img}
+                    className={"eventsImg"}
+                    alt={value.title}
+                    style={{
+                      transform:
+                        activeIndex === number ? "scale(1.05)" : "scale(1)",
+                    }}
+                  />
+                  <Box className={"hotDealBadge"}>Hot Deal!</Box>
+                </Box>
 
-                      <p className={"text-desc"}> {value.desc} </p>
-
-                      <div className={"bott-info"}>
-                        <div className={"bott-info-main"}>
-                          <img src={"/icons/calendar.svg"} />
+                <Box className={"eventsDesc"}>
+                  <Box className={"eventsBott"}>
+                    <Box className={"bottLeft"}>
+                      <Box component="strong" className={"eventTitle"}>
+                        {value.title}
+                      </Box>
+                      <Box className={"eventOrganizator"}>
+                        <img
+                          src="/icons/speaker.svg"
+                          alt="Speaker"
+                          className={"speakerIcon"}
+                        />
+                        <Box component="p" className={"specTextAuthor"}>
+                          {value.author}
+                        </Box>
+                      </Box>
+                      <Box component="p" className={"textDesc"}>
+                        {value.desc}
+                      </Box>
+                      <Box className={"bottInfo"}>
+                        <Box className={"bottInfoMain"}>
+                          <img
+                            src="/icons/calendar.svg"
+                            alt="Date"
+                            className={"infoIcon"}
+                          />
                           {value.date}
-                        </div>
-                        <div className={"bott-info-main"}>
-                          <img src={"/icons/location.svg"} />
+                        </Box>
+                        <Box className={"bottInfoMain"}>
+                          <img
+                            src="/icons/location.svg"
+                            alt="Location"
+                            className={"infoIcon"}
+                          />
                           {value.location}
-                        </div>
-                      </div>
+                        </Box>
+                      </Box>
                     </Box>
                   </Box>
                 </Box>
-              </SwiperSlide>
-            );
-          })}
+              </Box>
+            </SwiperSlide>
+          ))}
         </Swiper>
-        <Box className={"prev-next-frame"}>
-          <img
-            src={"/icons/arrow-right.svg"}
-            className={"swiper-button-prev"}
-          />
-          <div className={"dot-frame-pagination swiper-pagination"}></div>
-          <img
-            src={"/icons/arrow-right.svg"}
-            className={"swiper-button-next"}
-            style={{ transform: "rotate(-180deg)" }}
-          />
+
+        <Box className={"prevNextFrame"}>
+          <div className={"dotFramePagination"}></div>
         </Box>
       </Stack>
-    </div>
+    </Box>
   );
 }

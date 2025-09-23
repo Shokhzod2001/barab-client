@@ -1,30 +1,30 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { HomePageState } from "../../../lib/types/screen";
+import { createSlice } from "@reduxjs/toolkit"
+import { HomePageState } from "../../../lib/types/screen"
 
 const initialState: HomePageState = {
   popularDishes: [],
-  newDishes: [],
-  topUsers: [],
-};
+  chefs: [],
+  products: [],
+}
 
 const homePageSlice = createSlice({
   name: "homePage",
   initialState,
   reducers: {
     setPopularDishes: (state, action) => {
-      state.popularDishes = action.payload;
+      state.popularDishes = action.payload
     },
-    setNewDishes: (state, action) => {
-      state.newDishes = action.payload;
+    setTopChefs: (state, action) => {
+      state.chefs = action.payload
     },
-    setTopUsers: (state, action) => {
-      state.topUsers = action.payload;
+    setProducts: (state, action) => {
+      state.products = action.payload
     },
   },
-});
+})
 
-export const { setPopularDishes, setNewDishes, setTopUsers } =
-  homePageSlice.actions;
+export const { setPopularDishes, setTopChefs, setProducts } =
+  homePageSlice.actions
 
-const HomePageReducer = homePageSlice.reducer;
-export default HomePageReducer;
+const HomePageReducer = homePageSlice.reducer
+export default HomePageReducer

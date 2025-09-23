@@ -1,89 +1,120 @@
-import React from "react";
-import { Box, Container, Stack } from "@mui/material";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-
-const Footers = styled.div`
-  width: 100%;
-  height: 590px;
-  display: flex;
-  background: #343434;
-  background-size: cover;
-`;
+import { Box, Container, Stack } from "@mui/material"
+import { NavLink } from "react-router-dom"
 
 export default function Footer() {
-  const authMember = null;
-
   return (
-    <Footers>
-      <Container>
-        <Stack flexDirection={"row"} sx={{ mt: "94px" }}>
-          <Stack flexDirection={"column"} style={{ width: "340px" }}>
-            <Box>
-              <img width={"100px"} src={"/icons/burak.svg"} />
-            </Box>
-            <Box className={"foot-desc-txt"}>
-              Focusing on the gourmet Turkish breakfast as well as the youth
-              society, CZN Burak Gurme aims to bring Turkish cuisine back. CZN
-              Burak Gurme creates an illusion with its cuisine.
-            </Box>
-            <Box className="sns-context">
-              <img src={"/icons/facebook.svg"} />
-              <img src={"/icons/twitter.svg"} />
-              <img src={"/icons/instagram.svg"} />
-              <img src={"/icons/youtube.svg"} />
-            </Box>
-          </Stack>
-          <Stack sx={{ ml: "288px" }} flexDirection={"row"}>
-            <Stack>
-              <Box>
-                <Box className={"foot-category-title"}>Bo'limlar</Box>
-                <Box className={"foot-category-link"}>
-                  <Link to="/">Home</Link>
-                  <Link to="/products">Products</Link>
-                  {authMember && <Link to="/orders">Orders</Link>}
-                  <Link to="/help">Help</Link>
-                </Box>
-              </Box>
-            </Stack>
-            <Stack sx={{ ml: "100px" }}>
-              <Box>
-                <Box className={"foot-category-title"}>Find us</Box>
-                <Box
-                  flexDirection={"column"}
-                  sx={{ mt: "20px" }}
-                  className={"foot-category-link"}
-                  justifyContent={"space-between"}
-                >
-                  <Box flexDirection={"row"} className={"find-us"}>
-                    <span>L.</span>
-                    <div>Downtown, Dubai</div>
-                  </Box>
-                  <Box className={"find-us"}>
-                    <span>P.</span>
-                    <div>+971 4 554 7777</div>
-                  </Box>
-                  <Box className={"find-us"}>
-                    <span>E.</span>
-                    <div>devexuz@gmail.com</div>
-                  </Box>
-                  <Box className={"find-us"}>
-                    <span>H.</span>
-                    <div>Visit 24 hours</div>
-                  </Box>
-                </Box>
-              </Box>
-            </Stack>
-          </Stack>
+    <Stack className="footer">
+      <Container className="container">
+        <Stack className="info">
+          <h1>Let's Talk With Us</h1>
+          <img src="/img/Vector.svg" alt="decoration" />{" "}
+          {/* Added leading slash */}
+          <img src="/img/footer_pizza.png" alt="pizza" className="pizza" />{" "}
+          {/* Added leading slash */}
         </Stack>
-        <Stack
-          style={{ border: "1px solid #C5C8C9", width: "100%", opacity: "0.2" }}
-          sx={{ mt: "80px" }}
-        ></Stack>
-        <Stack className={"copyright-txt"}>
-          © Copyright Devex Global, All rights reserved.
+        <Stack className="contact-wrapper">
+          <Box className="contact">
+            <h3>Contact Info</h3>
+            <img src="/img/contact.svg" alt="contact icon" />{" "}
+            {/* Added leading slash */}
+            <p>Phone: +010 4390 2001 +998 90 030 70 58</p>
+            <p>Email: info@barab.com</p>
+          </Box>
+          <Box className="contact">
+            <h3>Quick Links</h3>
+            <img src="/img/contact.svg" alt="links icon" />{" "}
+            {/* Added leading slash */}
+            <div className="links">
+              <NavLink
+                to="/"
+                style={{
+                  marginLeft: "25px",
+                  color: "white",
+                  textDecoration: "none",
+                }}
+              >
+                HOME
+              </NavLink>
+              <span style={{ margin: "0 10px", color: "white" }}>-</span>
+              <NavLink
+                to="/menu"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                MENU
+              </NavLink>
+              <span style={{ margin: "0 10px", color: "white" }}>-</span>
+              <NavLink
+                to="/about"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                ABOUT
+              </NavLink>
+              <span style={{ margin: "0 10px", color: "white" }}>-</span>
+              <NavLink
+                to="/shop"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                SHOP
+              </NavLink>
+              <br />
+              <NavLink
+                to="/chef"
+                style={{
+                  marginLeft: "65px",
+                  color: "white",
+                  textDecoration: "none",
+                }}
+              >
+                CHEF
+              </NavLink>
+              <span style={{ margin: "0 10px", color: "white" }}>-</span>
+              <NavLink
+                to="/help"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                HELP
+              </NavLink>
+              <span style={{ margin: "0 10px", color: "white" }}>-</span>
+              <NavLink
+                to="/member-page"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                MYPAGE
+              </NavLink>
+            </div>
+          </Box>
+          <Box className="contact">
+            <h3>Favorite Menus</h3>
+            <img src="/img/contact.svg" alt="menu icon" />{" "}
+            {/* Added leading slash */}
+            <div className="menu-links">
+              <span>BURGERS</span> <span>CHICKEN</span> <span>PIZZA</span>
+              <span>MEXICAN</span>
+              <span style={{ marginLeft: "25px" }}>SALADS</span>
+              <span>DESSERTS</span> <span>BEVERAGES</span>
+              <span style={{ marginLeft: "95px" }}>SANDWICHES</span>
+            </div>
+          </Box>
+        </Stack>
+        <Stack className="summary">
+          <Box className="left">Copyright 2025 Barab. All Rights Reserved.</Box>
+          <Box className="middle">
+            <img src="/img/bottom_logo.jpg" alt="company logo" />{" "}
+            {/* Added leading slash */}
+          </Box>
+          <Box className="right">
+            <img src="/img/visa-card.png" alt="visa" />{" "}
+            {/* Added leading slash */}
+            <img src="/img/master-card.png" alt="mastercard" />{" "}
+            {/* Added leading slash */}
+            <img src="/img/express-card.png" alt="american express" />{" "}
+            {/* Added leading slash */}
+            <img src="/img/discover-card.png" alt="discover" />{" "}
+            {/* Added leading slash */}
+          </Box>
         </Stack>
       </Container>
-    </Footers>
-  );
+      <Stack className="bottom"></Stack>
+    </Stack>
+  )
 }

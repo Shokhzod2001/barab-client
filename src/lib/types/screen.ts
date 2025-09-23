@@ -1,32 +1,37 @@
 // REACT APP STATE
 
-import { Member } from "./member";
-import { Order } from "./order";
-import { Product } from "./product";
+import { Member } from "./member"
+import { Order } from "./order"
+import { Product } from "./product"
 
 export interface AppRootState {
-  homePage: HomePageState;
-  productsPage: ProductsPageState;
-  ordersPage: OrdersPageState;
+  homePage: HomePageState
+  menuPage: MenuPageState
+  ordersPage: OrdersPageState
+  chefsPage: ChefsPageState
 }
 
 // HOMEPAGE
 export interface HomePageState {
-  popularDishes: Product[];
-  newDishes: Product[];
-  topUsers: Member[];
+  popularDishes: Product[]
+  chefs: Member[]
+  products: Product[]
 }
 
 // PRODUCTS PAGE
-export interface ProductsPageState {
-  restaurant: Member | null;
-  chosenProduct: Product | null;
-  products: Product[];
+export interface MenuPageState {
+  chosenProduct: Product | null
+  products: Product[]
 }
 
 // ORDERS PAGE
 export interface OrdersPageState {
-  pausedOrders: Order[];
-  processOrders: Order[];
-  finishedOrders: Order[];
+  pausedOrders: Order[]
+  processOrders: Order[]
+  finishedOrders: Order[]
+}
+
+// CHEFS PAGE
+export interface ChefsPageState {
+  chefs: Member[]
 }

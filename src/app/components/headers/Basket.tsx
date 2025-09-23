@@ -4,14 +4,14 @@ import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import Menu from "@mui/material/Menu";
 import CancelIcon from "@mui/icons-material/Cancel";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { useHistory } from "react-router-dom";
 import { CartItem } from "../../../lib/types/search";
 import { Messages, serverApi } from "../../../lib/config";
 import { sweetErrorHandling } from "../../../lib/sweetAlert";
-import { useGlobals } from "../../hooks/useGlobals";
 import OrderService from "../../services/OrderService";
+import { useGlobals } from "../../hooks/useGlobals";
 
 interface BasketProps {
   cartItems: CartItem[];
@@ -57,7 +57,7 @@ export default function Basket(props: BasketProps) {
       onDeleteAll();
       // REFRESH VIA CONTEXT
       setOrderBuilder(new Date());
-      history.push("/orders");
+      history.push("/shop");
     } catch (err) {
       console.log(err);
       sweetErrorHandling(err).then();
@@ -65,7 +65,7 @@ export default function Basket(props: BasketProps) {
   };
 
   return (
-    <Box className={"hover-line"}>
+    <Box className={"hover-line"} style={{ marginRight: "35px" }}>
       <IconButton
         aria-label="cart"
         id="basic-button"
@@ -73,9 +73,15 @@ export default function Basket(props: BasketProps) {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
+        sx={{
+          "&:hover": {
+            backgroundColor: "rgba(0, 0, 0, 0.05)",
+          },
+          padding: "17px",
+        }}
       >
-        <Badge badgeContent={cartItems.length} color="secondary">
-          <img src={"/icons/shopping-cart.svg"} />
+        <Badge badgeContent={cartItems.length} color="error">
+          <img src={"/icons/shopping_cart.svg"} style={{ width: "32px" }} />
         </Badge>
       </IconButton>
       <Menu
@@ -83,19 +89,12 @@ export default function Basket(props: BasketProps) {
         id="account-menu"
         open={open}
         onClose={handleClose}
-        // onClick={handleClose}
         PaperProps={{
-          elevation: 0,
+          elevation: 3,
           sx: {
             overflow: "visible",
-            filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+            borderRadius: "12px",
             mt: 1.5,
-            "& .MuiAvatar-root": {
-              width: 32,
-              height: 32,
-              ml: -0.5,
-              mr: 1,
-            },
             "&:before": {
               content: '""',
               display: "block",
@@ -116,12 +115,16 @@ export default function Basket(props: BasketProps) {
         <Stack className={"basket-frame"}>
           <Box className={"all-check-box"}>
             {cartItems.length === 0 ? (
-              <div>Cart is empty!</div>
+              <div style={{ fontWeight: 600, fontSize: "16px" }}>
+                My Cart is empty
+              </div>
             ) : (
               <Stack flexDirection={"row"}>
-                <div>Cart Products:</div>
+                <div style={{ fontWeight: 600, fontSize: "16px" }}>
+                  My Cart Products:
+                </div>
                 <DeleteForeverIcon
-                  sx={{ ml: "5px", cursor: "pointer" }}
+                  sx={{ ml: "230px", cursor: "pointer" }}
                   color={"primary"}
                   onClick={() => onDeleteAll()}
                 />
@@ -133,16 +136,20 @@ export default function Basket(props: BasketProps) {
             <Box className={"orders-wrapper"}>
               {cartItems.map((item: CartItem) => {
                 const imagePath = `${serverApi}/${item.image}`;
-
                 return (
                   <Box className={"basket-info-box"} key={item._id}>
                     <div className={"cancel-btn"}>
                       <CancelIcon
-                        color={"primary"}
+                        color={"error"}
+                        fontSize="small"
                         onClick={() => onDelete(item)}
                       />
                     </div>
-                    <img src={imagePath} className={"product-img"} />
+                    <img
+                      src={imagePath}
+                      className={"product-img"}
+                      style={{ border: "1px solid #eee" }}
+                    />
                     <span className={"product-name"}>{item.name}</span>
                     <p className={"product-price"}>
                       ${item.price} x {item.quantity}
@@ -150,12 +157,13 @@ export default function Basket(props: BasketProps) {
                     <Box sx={{ minWidth: 120 }}>
                       <div className="col-2">
                         <button
-                          onClick={() => onRemove(item)}
                           className="remove"
+                          onClick={() => onRemove(item)}
                         >
                           -
-                        </button>{" "}
-                        <button onClick={() => onAdd(item)} className="add">
+                        </button>
+                        <span style={{ margin: "0 8px" }}>{item.quantity}</span>
+                        <button className="add" onClick={() => onAdd(item)}>
                           +
                         </button>
                       </div>
@@ -174,8 +182,12 @@ export default function Basket(props: BasketProps) {
                 onClick={proceedOrderHandler}
                 startIcon={<ShoppingCartIcon />}
                 variant={"contained"}
+                sx={{
+                  backgroundColor: "#1976d2",
+                  "&:hover": { backgroundColor: "#1565c0" },
+                }}
               >
-                Order
+                Order Now
               </Button>
             </Box>
           ) : (

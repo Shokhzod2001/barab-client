@@ -1,86 +1,97 @@
-import { Box, Container, Stack } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import PhoneIcon from "@mui/icons-material/Phone";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import "../../../css/userPage.css";
 import { Settings } from "./Settings";
 import { useHistory } from "react-router-dom";
 import { useGlobals } from "../../hooks/useGlobals";
 import { serverApi } from "../../../lib/config";
-import { MemberType } from "../../../lib/enums/member.enum";
-import "../../../css/userPage.css";
 
 export default function UserPage() {
   const history = useHistory();
   const { authMember } = useGlobals();
 
   if (!authMember) history.push("/");
-  return (
-    <div className={"user-page"}>
-      <Container>
-        <Stack className={"my-page-frame"}>
-          <Stack className={"my-page-left"}>
-            <Box display={"flex"} flexDirection={"column"}>
-              <Box className={"menu-name"}>Modify Member Details</Box>
-              <Box className={"menu-content"}>
-                <Settings />
-              </Box>
-            </Box>
-          </Stack>
 
-          <Stack className={"my-page-right"}>
-            <Box className={"order-info-box"}>
-              <Box
-                display={"flex"}
-                flexDirection={"column"}
-                alignItems={"center"}
-              >
-                <div className={"order-user-img"}>
+  return (
+    <div className="user-page">
+      <div className="user-page-container">
+        <div className="user-page-grid">
+          <div className="form-section">
+            <Settings />
+          </div>
+
+          <div className="profile-card modern-card">
+            <div className="profile-cover"></div>
+
+            <div className="profile-content">
+              <div className="profile-avatar-container">
+                <div className="profile-avatar-wrapper">
                   <img
                     src={
                       authMember?.memberImage
-                        ? `${serverApi}/${authMember?.memberImage}`
+                        ? `${serverApi}/${authMember.memberImage}`
                         : "/icons/default-user.svg"
                     }
-                    className={"order-user-avatar"}
+                    alt="Profile"
+                    className="profile-avatar"
                   />
-                  <div className={"order-user-icon-box"}>
-                    <img
-                      src={
-                        authMember?.memberType === MemberType.RESTAURANT
-                          ? "/icons/restaurant.svg"
-                          : "/icons/user-badge.svg"
-                      }
-                    />
+                </div>
+                <button className="avatar-edit-button">
+                  <CameraAltIcon />
+                </button>
+              </div>
+
+              <div className="profile-info">
+                <h2 className="profile-name">{authMember?.memberNick}</h2>
+
+                <div className="contact-info">
+                  <div className="contact-item">
+                    <PhoneIcon />
+                    <span>{authMember?.memberPhone}</span>
+                  </div>
+                  <div className="contact-item">
+                    <LocationOnIcon />
+                    <span>
+                      {authMember?.memberAddress === "no address"
+                        ? "No address"
+                        : authMember?.memberAddress}
+                    </span>
                   </div>
                 </div>
-                <span className={"order-user-name"}>
-                  {authMember?.memberNick}
-                </span>
-                <span className={"order-user-prof"}>
-                  {authMember?.memberType}
-                </span>
-                <span className={"order-user-prof"}>
-                  {authMember?.memberAddress
-                    ? authMember?.memberAddress
-                    : "No Address"}
-                </span>
-              </Box>
-              <Box className={"user-media-box"}>
-                <FacebookIcon />
-                <InstagramIcon />
-                <TelegramIcon />
-                <YouTubeIcon />
-              </Box>
-              <p className={"user-desc"}>
-                {authMember?.memberDesc
-                  ? authMember?.memberDesc
-                  : "No Description"}
-              </p>
-            </Box>
-          </Stack>
-        </Stack>
-      </Container>
+
+                {/* Social Links */}
+                <div className="social-links">
+                  <button className="social-button facebook">
+                    <FacebookIcon />
+                  </button>
+                  <button className="social-button instagram">
+                    <InstagramIcon />
+                  </button>
+                  <button className="social-button telegram">
+                    <TelegramIcon />
+                  </button>
+                  <button className="social-button youtube">
+                    <YouTubeIcon />
+                  </button>
+                </div>
+
+                <div className="profile-description">
+                  <p>
+                    {!authMember?.memberDesc
+                      ? "Add a description to tell others about yourself..."
+                      : authMember?.memberDesc}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

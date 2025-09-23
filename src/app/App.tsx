@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
-import ProductsPage from "./screens/productsPage";
-import OrdersPage from "./screens/ordersPage";
 import UserPage from "./screens/userPage";
 import HomePage from "./screens/homePage";
 import HelpPage from "./screens/helpPage";
@@ -17,6 +15,10 @@ import { useGlobals } from "./hooks/useGlobals";
 import "../css/app.css";
 import "../css/navbar.css";
 import "../css/footer.css";
+import AboutPage from "./screens/aboutPage";
+import ChefPage from "./screens/chefPage";
+import ShopPage from "./screens/shopPage";
+import MenuPage from "./screens/menuPage";
 
 function App() {
   const location = useLocation();
@@ -72,7 +74,6 @@ function App() {
           onRemove={onRemove}
           onDelete={onDelete}
           onDeleteAll={onDeleteAll}
-          setSignupOpen={setSignupOpen}
           setLoginOpen={setLoginOpen}
           anchorEl={anchorEl}
           handleLogoutClick={handleLogoutClick}
@@ -81,11 +82,17 @@ function App() {
         />
       )}
       <Switch>
-        <Route path="/products">
-          <ProductsPage onAdd={onAdd} />
+        <Route path="/about">
+          <AboutPage />
         </Route>
-        <Route path="/orders">
-          <OrdersPage />
+        <Route path="/menu">
+          <MenuPage onAdd={onAdd} />
+        </Route>
+        <Route path="/shop">
+          <ShopPage />
+        </Route>
+        <Route path="/chef">
+          <ChefPage />
         </Route>
         <Route path="/member-page">
           <UserPage />
@@ -94,7 +101,7 @@ function App() {
           <HelpPage />
         </Route>
         <Route path="/">
-          <HomePage />
+          <HomePage onAdd={onAdd} />
         </Route>
       </Switch>
       <Footer />
