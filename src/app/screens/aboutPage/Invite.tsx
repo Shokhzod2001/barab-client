@@ -8,7 +8,8 @@ export default function Invite() {
         <Stack className="desc">
           <p>About our restaurant</p>
           <h1>
-            We invite you to visit our Fast food <span>restaurant</span>
+            We invite you to visit our <br />
+            Fast food <span>restaurant</span>
           </h1>
           <h6>
             At the heart of our kitchen are bold flavors, high-quality

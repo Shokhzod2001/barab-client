@@ -1,6 +1,6 @@
 const { spawn } = require("child_process");
 
-const child = spawn("yarn", ["start"], {
+const child = spawn("yarn", ["start:prod"], {
   stdio: "inherit",
   shell: true,
 });

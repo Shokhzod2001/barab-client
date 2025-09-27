@@ -179,13 +179,13 @@
 }
 
 .aboutPage .invitation .container .desc Button {
-  margin-left: 35px;
-  margin-top: 15px;
+  margin-left: 42px;
+  margin-top: 13px;
   position: absolute;
   color: var(--default-color-ffffff, #fff);
   text-align: center;
   font-family: "Barlow Condensed";
-  font-size: 11px;
+  font-size: 13px;
   font-style: normal;
   font-weight: 600;
   line-height: 30px; /* 166.667% */

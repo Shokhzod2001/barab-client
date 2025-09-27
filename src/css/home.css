@@ -308,11 +308,12 @@
 
 .homepage .invitation .container .desc Button {
   margin-top: 15px;
+  left: 18px;
   position: absolute;
   color: var(--default-color-ffffff, #fff);
   text-align: center;
   font-family: "Barlow Condensed";
-  font-size: 11px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 600;
   line-height: 30px; /* 166.667% */

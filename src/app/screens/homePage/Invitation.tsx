@@ -1,4 +1,4 @@
-import { Box, Button, Container, Stack } from "@mui/material"
+import { Box, Button, Container, Stack } from "@mui/material";
 
 export default function Invitation() {
   return (
@@ -8,7 +8,8 @@ export default function Invitation() {
         <Stack className="desc">
           <p>About our restaurant</p>
           <h1>
-            We invite you to visit our Fast food <span>restaurant</span>
+            We invite you to visit our <br />
+            Fast food <span>restaurant</span>
           </h1>
           <h6>
             At the heart of our kitchen are bold flavors, high-quality
@@ -31,5 +32,5 @@ export default function Invitation() {
         </Stack>
       </Container>
     </div>
-  )
+  );
 }
