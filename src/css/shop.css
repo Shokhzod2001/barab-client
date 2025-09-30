@@ -134,9 +134,7 @@
   flex-shrink: 0;
   border-radius: 16px;
   background: #f8f8fe;
-  box-shadow:
-    14px 14px 5px 0px #bbbbbf,
-    0px 1px 11px 12px #d3d3e7 inset,
+  box-shadow: 14px 14px 5px 0px #bbbbbf, 0px 1px 11px 12px #d3d3e7 inset,
     0px 4px 16px 0px rgba(242, 189, 87, 0.04) inset;
   display: flex;
   flex-direction: column;
@@ -148,9 +146,7 @@
 
 .order-page .order-container .order-right .user-box:hover {
   transform: translateY(-8px);
-  box-shadow:
-    18px 18px 8px 0px #bbbbbf,
-    0px 1px 11px 12px #d3d3e7 inset,
+  box-shadow: 18px 18px 8px 0px #bbbbbf, 0px 1px 11px 12px #d3d3e7 inset,
     0px 4px 16px 0px rgba(242, 189, 87, 0.08) inset;
 }
 
@@ -257,9 +253,7 @@
   flex-shrink: 0;
   border-radius: 16px;
   background: #f8f8fe;
-  box-shadow:
-    14px 14px 4px 0px #bcbcbf,
-    0px 0px 9px 14px #d3d3e7 inset,
+  box-shadow: 14px 14px 4px 0px #bcbcbf, 0px 0px 9px 14px #d3d3e7 inset,
     0px 4px 16px 0px rgba(242, 189, 87, 0.04) inset;
   display: flex;
   flex-direction: column;
@@ -271,9 +265,7 @@
 
 .order-page .order-container .order-right .card-box:hover {
   transform: translateY(-5px);
-  box-shadow:
-    18px 18px 8px 0px #bcbcbf,
-    0px 0px 12px 16px #d3d3e7 inset,
+  box-shadow: 18px 18px 8px 0px #bcbcbf, 0px 0px 12px 16px #d3d3e7 inset,
     0px 4px 20px 0px rgba(242, 189, 87, 0.08) inset;
 }
 
@@ -381,9 +373,7 @@
   height: 244px;
   border-radius: 16px;
   background: #f8f8fe;
-  box-shadow:
-    -12px 12px 4px 0px #bababf,
-    0px 4px 10px 9px #d3d3e7 inset,
+  box-shadow: -12px 12px 4px 0px #bababf, 0px 4px 10px 9px #d3d3e7 inset,
     0px 4px 16px 0px rgba(242, 189, 87, 0.04) inset;
   display: flex;
   flex-direction: column;
@@ -398,9 +388,7 @@
   .order-main-content
   .order-main-box:hover {
   transform: translateY(-5px);
-  box-shadow:
-    -16px 16px 8px 0px #bababf,
-    0px 4px 12px 11px #d3d3e7 inset,
+  box-shadow: -16px 16px 8px 0px #bababf, 0px 4px 12px 11px #d3d3e7 inset,
     0px 4px 20px 0px rgba(242, 189, 87, 0.08) inset;
 }
 
@@ -411,7 +399,6 @@
   overflow: scroll;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   scrollbar-width: none; /* For Firefox */
   -ms-overflow-style: none; /* For Internet Explorer and Edge */
@@ -700,9 +687,7 @@
   height: 244px;
   border-radius: 16px;
   background: #f8f8fe;
-  box-shadow:
-    -12px 12px 4px 0px #bababf,
-    0px 4px 10px 9px #d3d3e7 inset,
+  box-shadow: -12px 12px 4px 0px #bababf, 0px 4px 10px 9px #d3d3e7 inset,
     0px 4px 16px 0px rgba(242, 189, 87, 0.04) inset;
   display: flex;
   flex-direction: column;
@@ -739,9 +724,7 @@
   .order-main-content
   .order-process-box:hover {
   transform: translateY(-5px);
-  box-shadow:
-    -16px 16px 8px 0px #bababf,
-    0px 4px 12px 11px #d3d3e7 inset,
+  box-shadow: -16px 16px 8px 0px #bababf, 0px 4px 12px 11px #d3d3e7 inset,
     0px 4px 20px 0px rgba(242, 189, 87, 0.08) inset;
 }
 
@@ -956,9 +939,7 @@
   height: 244px;
   border-radius: 16px;
   background: #f8f8fe;
-  box-shadow:
-    -12px 12px 4px 0px #bababf,
-    0px 4px 10px 9px #d3d3e7 inset,
+  box-shadow: -12px 12px 4px 0px #bababf, 0px 4px 10px 9px #d3d3e7 inset,
     0px 4px 16px 0px rgba(242, 189, 87, 0.04) inset;
   display: flex;
   flex-direction: column;
@@ -995,9 +976,7 @@
   .order-main-content
   .order-finish-box:hover {
   transform: translateY(-5px);
-  box-shadow:
-    -16px 16px 8px 0px #bababf,
-    0px 4px 12px 11px #d3d3e7 inset,
+  box-shadow: -16px 16px 8px 0px #bababf, 0px 4px 12px 11px #d3d3e7 inset,
     0px 4px 20px 0px rgba(242, 189, 87, 0.08) inset;
 }
 
